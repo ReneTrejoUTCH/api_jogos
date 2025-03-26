@@ -1,18 +1,21 @@
 from flask import Flask, render_template, request, jsonify
+from API_KEY import API_KEY
 import requests # type: ignore
 app = Flask(__name__)
 
-API_KEY = "d401df7ed0e24f59891347be0d003fd5"
+
 JUEGO = "the-last-of-us"
 
 url = f"https://api.rawg.io/api/games/{JUEGO}?key={API_KEY}"
 
 response = requests.get(url)
 
-@app.route("/")
-def inicio():
-    return render_template("index.html")
+# @app.route("/")
+# def inicio():
+#     return render_template("index.html")
 
+# @app.route("/juegos", methods="GET")
+# def juegos():
 if response.status_code == 200:
     data = response.json()
 
