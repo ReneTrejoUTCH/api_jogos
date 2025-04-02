@@ -1,94 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador de Juegos</title>
+    <title>LootBox</title>
+    <link rel="icon" href="static/logo.webp" type="image/x-icon">
+    <link rel="stylesheet" href="static/style.css">
+
 </head>
+
 <body>
-    <h1>Buscador de Juegos</h1>
-    
-    <input type="text" id="gameName" placeholder="Nombre del juego">
-    <button onclick="searchGame()">Buscar</button>
+    <div class="loot">LootBox</div>
+    <div class="container">
+        <div class="search-bar">
+            <input type="search" id="searchInput" placeholder="Busca un juego...">
+            <button id="searchButton">Buscar</button>
+        </div>
 
-    <div id="result"></div>
-    <div id="priceContainer"></div>
-    <div id="trailerContainer"></div>
+        <div class="section">
+            <h2>🎮 Resultado</h2>
+            <div id="results"></div>
+        </div>
 
-    <script>
-        async function searchGame() {
-            const gameName = document.getElementById("gameName").value;
-            if (!gameName) {
-                alert("Ingresa un nombre de juego.");
-                return;
-            }
+        <div class="section">
+            <h2>💰 Precios y Descuentos</h2>
+            <div id="priceContainer"></div>
+        </div>
 
-            // 🔹 Hacemos la petición al backend
-            const response = await fetch(`/search_game?name=${encodeURIComponent(gameName)}`);
-            const data = await response.json();
+        <div class="section">
+            <h2>📺 Videos de YouTube</h2>
+            <div id="youtubeResults"></div>
+        </div>
 
-            if (data.error) {
-                document.getElementById("result").innerHTML = `<p>${data.error}</p>`;
-                document.getElementById("priceContainer").innerHTML = "";
-                document.getElementById("trailerContainer").innerHTML = "";
-                return;
-            }
+        <div class="section">
+            <h2>🎥 Streams de Twitch</h2>
+            <div id="twitchResults" class="twitchResults"></div>
+        </div>
+    </div>
 
-            // 🔹 Mostramos los detalles del juego
-            document.getElementById("result").innerHTML = `
-                <h2>${data.game.name}</h2>
-                <img src="${data.game.image}" width="400">
-                <p><strong>Descripción:</strong> ${data.game.description}</p>
-                <p><strong>Fecha de lanzamiento:</strong> ${data.game.released}</p>
-                <p><strong>Plataformas:</strong> ${data.game.platforms.join(", ")}</p>
-            `;
-
-            // 🔹 Mostramos los descuentos en una tabla
-            if (data.price && data.price.length > 0) {
-                let priceHTML = `
-                    <h3>Precios y Descuentos</h3>
-                    <table border="1">
-                        <tr>
-                            <th>Tienda</th>
-                            <th>Precio Normal</th>
-                            <th>Precio Oferta</th>
-                            <th>Enlace</th>
-                        </tr>
-                `;
-
-                data.price.forEach(deal => {
-                    priceHTML += `
-                        <tr>
-                            <td>${deal.title}</td>
-                            <td>$${deal.normalPrice}</td>
-                            <td><strong>$${deal.salePrice}</strong></td>
-                            <td><a href="${deal.dealLink}" target="_blank">Comprar</a></td>
-                        </tr>
-                    `;
-                });
-
-                priceHTML += `</table>`;
-                document.getElementById("priceContainer").innerHTML = priceHTML;
-            } else {
-                document.getElementById("priceContainer").innerHTML = "<p>No hay ofertas disponibles</p>";
-            }
-
-            // 🔹 Mostramos el tráiler si hay
-            if (data.trailer) {
-                document.getElementById("trailerContainer").innerHTML = `
-                    <h3>Tráiler</h3>
-                    <iframe width="560" height="315" 
-                        src="${data.trailer.embed_url}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
-                `;
-            } else {
-                document.getElementById("trailerContainer").innerHTML = "<p>No hay tráiler disponible</p>";
-            }
-        }
-    </script>
+    <script src="static/script.js"></script>
 </body>
-</html>
 
+</html>

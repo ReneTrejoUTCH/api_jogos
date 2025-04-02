@@ -1,0 +1,124 @@
+/* Idea de Neon Glow Effect por https://codepen.io/CITguy/pen/yLaZZbO */
+@font-face {
+    font-family: 'Neon Glow';
+    src: url(https://assets.codepen.io/230569/NeonGlow-8VLz.ttf);
+  }
+  
+.loot { 
+    --blur: 1.75rem;
+    --glow: var(--color);
+
+    font-size: 15vw; 
+    font-family: 'Neon Glow';
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    text-shadow: 0 0 var(--blur) var(--glow);
+    --color: #71a1b1; 
+    filter: saturate(200%); 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e2e;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+.search-bar input {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 50%;
+    
+}
+
+.search-bar button {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #16213e;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2.00rem #71a1b1;
+}
+
+
+.section {
+    background-color: #252538;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ffbb00;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.stream-card {
+    background-color: #0f3460;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.stream {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+
+.stream-thumbnail {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.stream-thumbnail:hover {
+    transform: scale(1.05);
+}   
+
+#twitchResults {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
+    gap: 15px; /* Espacio entre streams */
+    text-align: center;
+}
+
+#youtubeResults {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
+    gap: 15px; /* Espacio entre streams */
+    text-align: center;
+}
