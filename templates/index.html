@@ -2,44 +2,68 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LootBox</title>
-    <link rel="icon" href="static/logo.webp" type="image/x-icon">
-    <link rel="stylesheet" href="static/style.css">
-
+  <!-- Configuración básica y metadatos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LootBox</title>
+  
+  <!-- Ícono de la aplicación -->
+  <link rel="icon" href="static/logo.webp" type="image/x-icon">
+  
+  <!-- Incluir Font Awesome para iconos modernos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Hoja de estilos personalizada -->
+  <link rel="stylesheet" href="static/style.css">
+  
+  <!-- Fuentes de Google Fonts para mejorar tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="loot">LootBox</div>
-    <div class="container">
-        <div class="search-bar">
-            <input type="search" id="searchInput" placeholder="Busca un juego...">
-            <button id="searchButton">Buscar</button>
-        </div>
+  <!-- Logo con efecto neon -->
+  <div class="loot">LootBox</div>
 
-        <div class="section">
-            <h2>🎮 Resultado</h2>
-            <div id="results"></div>
-        </div>
-
-        <div class="section">
-            <h2>💰 Precios y Descuentos</h2>
-            <div id="priceContainer"></div>
-        </div>
-
-        <div class="section">
-            <h2>📺 Videos de YouTube</h2>
-            <div id="youtubeResults"></div>
-        </div>
-
-        <div class="section">
-            <h2>🎥 Streams de Twitch</h2>
-            <div id="twitchResults" class="twitchResults"></div>
-        </div>
+  <!-- Contenedor principal -->
+  <div class="container">
+    <!-- Barra de búsqueda -->
+    <div class="search-bar">
+      <input type="search" id="searchInput" placeholder="Busca un juego...">
+      <button id="searchButton">Buscar</button>
+    </div>
+    
+    <!-- Mensaje de recomendación -->
+    <div>
+      <h5 class="recomendacion">Recomendación: Busca el juego exactamente como se llama</h5>
     </div>
 
-    <script src="static/script.js"></script>
+    <!-- Sección para mostrar la información del juego -->
+    <div class="section">
+      <h1><i class="fa-solid fa-gamepad"></i> Resultado</h1>
+      <div id="results"></div>
+    </div>
+
+    <!-- Sección para mostrar precios y ofertas (tabla centrada con CSS) -->
+    <div class="section">
+      <h1><i class="fa-solid fa-tags"></i> Compra Juegos Relacionados</h1>
+      <div id="priceContainer"></div>
+    </div>
+
+    <!-- Sección para mostrar videos de YouTube -->
+    <div class="section">
+      <h1><i class="fa-brands fa-youtube"></i> Videos de YouTube</h1>
+      <div id="youtubeResults"></div>
+    </div>
+
+    <!-- Sección para mostrar streams de Twitch en vivo -->
+    <div class="section">
+      <h1><i class="fa-brands fa-twitch"></i> Streams de Twitch en Vivo</h1>
+      <div id="twitchResults" class="twitchResults"></div>
+    </div>
+  </div>
+
+  <!-- Archivo JavaScript principal -->
+  <script src="static/script.js"></script>
 </body>
 
 </html>

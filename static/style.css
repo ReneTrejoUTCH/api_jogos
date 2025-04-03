@@ -1,50 +1,67 @@
-/* Idea de Neon Glow Effect por https://codepen.io/CITguy/pen/yLaZZbO */
-@font-face {
+/* 
+  style.css: Estilos para LootBox
+  Se utilizan las fuentes 'Montserrat' para encabezados y 'Roboto' para el contenido.
+*/
+
+/* Fuente principal para el contenido */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0e0e14;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Efecto Neon para el logo */
+  @font-face {
     font-family: 'Neon Glow';
     src: url(https://assets.codepen.io/230569/NeonGlow-8VLz.ttf);
   }
   
-.loot { 
-    --blur: 1.75rem;
-    --glow: var(--color);
-
-    font-size: 15vw; 
+  .loot { 
+    font-size: 15vw;
     font-family: 'Neon Glow';
     text-align: center;
     width: 100%;
     margin: 0;
-    text-shadow: 0 0 var(--blur) var(--glow);
-    --color: #71a1b1; 
-    filter: saturate(200%); 
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e2e;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-}
-
-.search-bar {
+    text-shadow: 0 0 1.75rem #71a1b1;
+    filter: saturate(200%);
+    color: #71a1b1;
+  }
+  
+  /* Spinner de carga para mostrar mientras se esperan resultados */
+  .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    border-top: 8px solid #ffbb00;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Estilos para la barra de búsqueda */
+  .search-bar {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    
-}
-
-.search-bar input {
+  }
+  
+  .search-bar input {
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
-    width: 300px;
+    width: 50%;
     padding: 10px;
     border-radius: 5px;
     border: none;
-    width: 50%;
-    
-}
-
-.search-bar button {
+  }
+  /* Estilo boton de buscar */
+  .search-bar button {
     font-family: 'Courier New', Courier, monospace;
     font-size: medium;
     background-color: #ff5722;
@@ -54,71 +71,88 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10px;
-}
-
-
-.container {
+  }
+/*  Animacion color boton de buscar  */
+    .search-bar button:hover {
+        background-color: #ffbb00;
+    }
+  
+  /* Contenedor principal */
+  .container {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #16213e;
+    background-color: #1b1b26;
     border-radius: 10px;
-    box-shadow: 0px 0px 2.00rem #71a1b1;
-}
-
-
-.section {
+    box-shadow: 0px 0px 2rem #71a1b1;
+  }
+  
+  /* Secciones centradas */
+  .section {
     background-color: #252538;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
-}
-
-h2 {
+    text-align: center;
+  }
+  
+  /* Encabezados usando Montserrat con color destacado */
+  h1 {
     color: #ffbb00;
-}
-
-img {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 15px;
+  }
+  
+  /* Subtítulos y encabezados secundarios */
+  h2 {
+    color: #d6d6d6;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Estilo para la recomendación */
+  .recomendacion {
+    text-align: center;
+    font-style: italic;
+  }
+  
+  /* Imágenes: se ajustan para no exceder el ancho del contenedor */
+  img {
     max-width: 100%;
     border-radius: 10px;
-}
-
-.stream-card {
-    background-color: #0f3460;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-}
-
-.stream {
+  }
+  
+  /* Tarjetas para mostrar streams */
+  .stream {
     display: inline-block;
     text-align: center;
     margin: 10px;
-}
-
-.stream-thumbnail {
+  }
+  
+  /* Thumbnails de los streams con transición para efecto hover */
+  .stream-thumbnail {
     width: 300px;
     height: 200px;
     border-radius: 10px;
     transition: transform 0.3s ease;
-}
-
-.stream-thumbnail:hover {
+  }
+  
+  .stream-thumbnail:hover {
     transform: scale(1.05);
-}   
-
-#twitchResults {
+  }
+  
+  /* Distribución para secciones de Twitch y YouTube */
+  #twitchResults, #youtubeResults {
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
-    gap: 15px; /* Espacio entre streams */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
     text-align: center;
-}
+  }
 
-#youtubeResults {
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea */
-    gap: 15px; /* Espacio entre streams */
-    text-align: center;
-}
+  
+  /* Centramos la tabla de ofertas en CheapShark */
+  #priceContainer table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
